@@ -5,14 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<form action="">
+<form method="POST">
     {% csrf_token %}
-    <select name="" id="">
+    <select name="food_consumed" id="food_consumed">
         {% for food in foods %}
             <option value="{{ food.name }}">{{ food.name }}></option>
         {% endfor %}
     </select>
+    <button type="sumit">Add</button>
 </form>
-
+{% for c in consumed_food %}
+    {{ c.food_consumed.name }} -->
+    {{ c.food_consumed.carbs }} -->
+    {{ c.food_consumed.protein }} -->
+    {{ c.food_consumed.calories }}
+{% endfor %}
 </body>
 </html>
