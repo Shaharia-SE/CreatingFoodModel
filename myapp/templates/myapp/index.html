@@ -132,14 +132,21 @@
 
     var calPer = (calories / 2000) * 100;
     document.getElementsByClassName("progress-bar")[0].setAttribute("style", "width:" + calPer + "%");
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
+
+    var total = carbs + protein + fats + calories;
+    var carbsP = Math.round((carbs / total) * 100);
+    var protienP = Math.round((protein / total) * 100);
+    var fatsP = Math.round((fats / total) * 100);
+    var caloriesP = Math.round((calories / total) * 100);
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Carbs', 'Protein', 'Fats', 'Calories'],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [carbsP, protienP, fatsP, caloriesP],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
