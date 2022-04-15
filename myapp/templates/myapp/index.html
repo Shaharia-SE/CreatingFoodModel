@@ -61,6 +61,7 @@
                                 <th>Protein(gm)</th>
                                 <th>Fats (gm)</th>
                                 <th>Calories (kcal)</th>
+                                <th>Remove Item</th>
                             </tr>
                             {% for c in consumed_food %}
                                 <tr>
@@ -78,6 +79,7 @@
                                     <td>
                                         {{ c.food_consumed.calories }}
                                     </td>
+                                    <td><a class="btn btn-danger" href="{% url 'delete' c.id %}">Remove</a></td>
 
 
                                 </tr>
@@ -148,10 +150,10 @@
                 label: '# of Votes',
                 data: [carbsP, protienP, fatsP, caloriesP],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
