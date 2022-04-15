@@ -12,6 +12,7 @@ def index(request):
         consume.save()
         foods = Food.objects.all()
 
+
     else:
         foods = Food.objects.all()
     consumed_food = Consume.objects.filter(user=request.user)
@@ -21,7 +22,7 @@ def index(request):
 
 def delete_consume(request, id):
     consumed_food = Consume.objects.get(id=id)
-    if request.method == "POST":
+    if request.method == 'POST':
         consumed_food.delete()
         return redirect('/')
     return render(request, 'myapp/delete.html')
